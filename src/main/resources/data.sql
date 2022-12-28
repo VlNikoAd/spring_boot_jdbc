@@ -7,5 +7,5 @@ values ('Vlad', 'Nikolaenko', 27, 8999999999),
 insert into ORDERS (customer_id, product_name, amount)
 values (1, 'Apple', 500),
        (2, 'Meizu', 100),
-       (3, 'Samsung',400),
+       (3, 'Samsung', 400),
        (4, 'Nokia', 300);

@@ -3,8 +3,6 @@ package ru.nikolaenko.spring_jdbc.service;
 import org.springframework.stereotype.Service;
 import ru.nikolaenko.spring_jdbc.repository.RepositoryImpl;
 
-import java.util.List;
-
 @Service
 public class MyService {
 
@@ -14,7 +12,7 @@ public class MyService {
         this.repositoryImpl = repositoryImpl;
     }
 
-    public List<String> getProductName(String name) {
+    public String getProductName(String name) {
         return repositoryImpl.getProductName(name);
     }
 }

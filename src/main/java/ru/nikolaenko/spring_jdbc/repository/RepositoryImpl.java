@@ -1,6 +1,7 @@
 package ru.nikolaenko.spring_jdbc.repository;
 
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -8,22 +9,22 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Repository
 public class RepositoryImpl {
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    private final String sqlScript;
 
     public RepositoryImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
+        this.sqlScript = read();
     }
 
-    public List<String> getProductName(String name) {
-        String scriptFileName = read();
-        return namedParameterJdbcTemplate.queryForList(scriptFileName, Map.of("name", name), String.class);
+    public String getProductName(String name) {
+        MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource("name", name);
+        return namedParameterJdbcTemplate.queryForObject(sqlScript, mapSqlParameterSource, String.class);
     }
 
     private static String read() {
