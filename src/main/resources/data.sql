@@ -1,11 +1,11 @@
 insert into CUSTOMERS(name, surname, age, phone_number)
-values ('Anna', 'Gracheva', 30, 84949030299),
-       ('Olga', 'Mac', 33, 84949030269),
-       ('Tomas', 'Gray', 2, 84949030297),
-       ('Alexey', 'Zhukov', 45, 84949030245);
+values ('Vlad', 'Nikolaenko', 27, 8999999999),
+       ('Artem', 'Vashtov', 33, 89998888888),
+       ('Andrey', 'Vasiliev', 24, 89997777777),
+       ('Nika', 'Bogdanova', 19, 89996666666);
 
 insert into ORDERS (customer_id, product_name, amount)
-values (1, 'Latte', 5),
-       (2, 'Beer', 10),
-       (3, 'Cheese', 6),
-       (4, 'Coca-Cola', 500);
+values (1, 'Apple', 500),
+       (2, 'Meizu', 100),
+       (3, 'Samsung',400),
+       (4, 'Nokia', 300);
